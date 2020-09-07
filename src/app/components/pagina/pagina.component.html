@@ -1,0 +1,39 @@
+<app-slider [nombre]="'Peliculas'"></app-slider>
+<div class="center">
+  <section id="content">
+    <div id="favorita" *ngIf="favorita">
+      <h2 class="subheader">
+        Pelicula Favorita
+      </h2>
+      <h4>
+        {{favorita.title}}
+      </h4>
+      <h5>
+        {{favorita.year | espar}}
+      </h5>
+    </div>
+    <!--
+      <p>pagina works!</p>
+
+      <div *ngIf="nombre">
+        <p>El nombre es {{ nombre }}</p>
+      </div>
+
+      <div *ngIf="!nombre">
+        <p>No hay parametros por la url</p>
+      </div>
+      <button (click)="redireccion()">Ir a Formulario</button>
+
+      <hr />
+    -->
+    
+    <h2 class="subheader">Listado de peliculas</h2>
+
+    <div id="articles" *ngIf="peliculas">
+        <div *ngFor="let pelicula of peliculas; let i = index">
+          <app-pelicula [pelicula]="pelicula" (MarcarFavorita)="mostrarFavorita($event)"></app-pelicula>
+        </div>
+    </div>
+  </section>
+  <app-sidebar></app-sidebar>
+</div>
